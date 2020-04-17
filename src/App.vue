@@ -1,31 +1,57 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <div id="app" :class="theme">
+    <Nav />
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
+<script>
+import { mapState } from "vuex";
+import Nav from "@/components/Nav/Nav";
+
+export default {
+  name: "App",
+  components: {
+    Nav
+  },
+  computed: {
+    ...mapState({
+      theme: state => state.ui.theme
+    })
+  }
+};
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
 
-#nav {
-  padding: 30px;
+  main {
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  &.light {
+    background-color: #f0f0f0;
+    color: #0f0f0f;
+  }
 
-    &.router-link-exact-active {
-      color: #42b983;
+  &.dark {
+    background-color: #0f0f0f;
+    color: #f0f0f0;
+
+    a:visited {
+      color: #9b45e5;
     }
   }
 }

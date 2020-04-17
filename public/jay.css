@@ -1,0 +1,9 @@
+/* My CSS */
+@font-face {
+    font-family: Agave;
+    src: url(Agave-Regular.ttf) format('truetype');
+}
+
+* {
+    font-family: Agave;
+}
