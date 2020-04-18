@@ -48,9 +48,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#career {
-  padding-bottom: 34px;
-}
-</style>

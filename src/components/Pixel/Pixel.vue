@@ -52,8 +52,43 @@ export default {
     },
 
     randomize() {
-      this.X = Math.ceil(Math.random() * this.parentWidth);
-      this.Y = Math.ceil(Math.random() * this.parentHeight);
+      // Places pixel at a random location on the page. Shouldn't send
+      // the pixel to be over top of a text node
+      const coords = { X: 0, Y: 0 };
+      const { parentHeight, parentWidth } = this;
+
+      function getCoords() {
+        coords.X = Math.floor(Math.random() * parentWidth);
+        coords.Y = Math.floor(Math.random() * parentHeight);
+      }
+
+      function isTextNode() {
+        const elemAtDestination = document.elementFromPoint(coords.X, coords.Y);
+
+        if (elemAtDestination) {
+          if (elemAtDestination.nodeName === "#text") {
+            return true;
+          } else if (
+            elemAtDestination.childNodes.length &&
+            elemAtDestination.childNodes[0].nodeName === "#text"
+          ) {
+            return true;
+          }
+
+          return false;
+        }
+
+        throw new Error("No element at coordinates");
+      }
+
+      getCoords();
+
+      while (isTextNode()) {
+        getCoords();
+      }
+
+      this.X = coords.X;
+      this.Y = coords.Y;
       this.color = Math.floor(Math.random() * 16777215).toString(16);
     },
   },

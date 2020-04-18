@@ -11,7 +11,7 @@ export default {
   namespaced: true,
   state: {
     theme: "light",
-    themes: ["dark", "light", "starlight", "magnolia", "mint"],
+    themes: ["light", "dark", "starlight", "magnolia", "mint", "plum"],
   } as uiState,
   getters: {},
   mutations: {

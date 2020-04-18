@@ -4,9 +4,8 @@
     <main>
       <router-view />
       <Pixel />
-      <Score />
-      <Prize />
     </main>
+    <Footer />
   </div>
 </template>
 
@@ -14,16 +13,14 @@
 import { mapState, mapActions } from "vuex";
 import Nav from "@/components/Nav/Nav";
 import Pixel from "@/components/Pixel/Pixel";
-import Score from "@/components/Score/Score";
-import Prize from "@/components/Prize/Prize";
+import Footer from "@/components/Footer/Footer";
 
 export default {
   name: "App",
   components: {
     Nav,
     Pixel,
-    Score,
-    Prize,
+    Footer,
   },
   computed: {
     ...mapState({
@@ -57,13 +54,12 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   justify-content: space-between;
   transition: all 0.2s ease;
 
   main {
     height: 100%;
-    padding: 10px 80px;
+    padding: 10px 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,6 +119,19 @@ export default {
 
       &:visited {
         color: #731963;
+      }
+    }
+  }
+
+  &.plum {
+    background-color: #5b3758;
+    color: #f4ecd6;
+
+    a {
+      color: #9790cd;
+
+      &:visited {
+        color: #707bc4;
       }
     }
   }

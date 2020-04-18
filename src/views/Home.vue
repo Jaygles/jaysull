@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <p class="home-paragraph">
+    <p>
       Welcome to my corner of the internet
     </p>
   </div>
@@ -12,9 +12,3 @@ export default {
   components: {},
 };
 </script>
-
-<style>
-.home-paragraph {
-  padding-bottom: 34px;
-}
-</style>

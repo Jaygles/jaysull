@@ -1,7 +1,7 @@
 <template>
   <p v-if="renderScore" id="score">
     <span class="number">{{ score }}</span>
-    <span class="clear" @click="clearScore">x</span>
+    <span class="clear" @click="clearScore">(X)</span>
   </p>
 </template>
 
@@ -29,18 +29,13 @@ export default {
 
 <style lang="scss">
 #score {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin: 0 3px;
-
   .clear {
     cursor: pointer;
-    font-size: 82%;
+    font-size: 60%;
   }
 
   .number {
-    margin-right: 2px;
+    padding: 0 6px;
   }
 }
 </style>
