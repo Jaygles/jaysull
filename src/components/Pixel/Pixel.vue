@@ -70,6 +70,7 @@ export default {
   position: fixed;
   cursor: pointer;
   padding: 5px;
+  transition: all 0.8s ease-in-out;
 
   .color {
     height: 1px;

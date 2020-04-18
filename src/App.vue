@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import Nav from "@/components/Nav/Nav";
 import Pixel from "@/components/Pixel/Pixel";
 import Score from "@/components/Score/Score";
@@ -30,6 +30,25 @@ export default {
       theme: (state) => state.ui.theme,
     }),
   },
+  mounted() {
+    document.addEventListener("keypress", this.handleKeypress);
+  },
+  destroyed() {
+    document.removeEventListener("keypress", this.handleKeypress);
+  },
+  methods: {
+    ...mapActions({
+      nextTheme: "ui/nextTheme",
+      prevTheme: "ui/prevTheme",
+    }),
+    handleKeypress(event) {
+      if (event.key === "a") {
+        this.prevTheme();
+      } else if (event.key === "d") {
+        this.nextTheme();
+      }
+    },
+  },
 };
 </script>
 
@@ -40,6 +59,7 @@ export default {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
+  transition: all 0.2s ease;
 
   main {
     height: 100%;
@@ -81,15 +101,28 @@ export default {
     }
   }
 
-  &.adobe {
-    background-color: #aa7141;
-    color: #ecedf5;
+  &.magnolia {
+    background-color: #f5efff;
+    color: #2c363f;
 
     a {
-      color: #423539;
+      color: #a594f9;
 
       &:visited {
-        color: #160c28;
+        color: #7a59fd;
+      }
+    }
+  }
+
+  &.mint {
+    background-color: #bcebcb;
+    color: #4c230a;
+
+    a {
+      color: #0b3c49;
+
+      &:visited {
+        color: #731963;
       }
     }
   }

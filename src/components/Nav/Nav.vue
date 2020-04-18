@@ -2,7 +2,7 @@
   <nav>
     <div class="links">
       <router-link to="/">Index</router-link>
-      <router-link to="/Career">Career</router-link>
+      <router-link to="/Experience">Experience</router-link>
       <router-link to="/Contact">Contact</router-link>
     </div>
     <div class="themes">
@@ -44,7 +44,7 @@ nav {
 
   .links {
     a {
-      padding: 0 5px;
+      padding: 0 6px;
     }
   }
 }

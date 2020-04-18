@@ -20,11 +20,11 @@
       >Website</a
     >
     <p>Title - Software Engineer</p>
-    <p>With the company for 0 years, 11 months, 0 days</p>
+    <p>With the company for 1 year, 0 months, and 0 days</p>
     <br />
     <h2>Fennec Industries Llc</h2>
     <p>Title - Grand High Poobah De Doink of Web Development</p>
-    <p>With the company for 1 years, 1 month, 0 days</p>
+    <p>With the company for 1 year, 1 month, and 0 days</p>
   </div>
 </template>
 
@@ -43,8 +43,14 @@ export default {
       const diffMinusYearsAndMonths = diffMinusYears - months * (msInDay * 30);
       const days = Math.floor(diffMinusYearsAndMonths / msInDay);
 
-      return `${years} years, ${months} months, ${days} days`;
-    }
-  }
+      return `${years} years, ${months} months, and ${days} days`;
+    },
+  },
 };
 </script>
+
+<style>
+#career {
+  padding-bottom: 34px;
+}
+</style>
