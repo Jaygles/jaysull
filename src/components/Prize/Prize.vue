@@ -12,18 +12,18 @@ export default {
       score: (state) => state.game.score,
     }),
     prizeEligible() {
-      return this.score > 5;
+      return this.score >= 5;
     },
     prize() {
-      if (this.score <= 5) {
+      if (this.score < 10) {
         return "👍";
-      } else if (this.score <= 10) {
+      } else if (this.score >= 10) {
         return "😂";
-      } else if (this.score <= 20) {
+      } else if (this.score >= 20) {
         return "🔥";
-      } else if (this.score <= 30) {
+      } else if (this.score >= 30) {
         return "✨";
-      } else if (this.score > 30) {
+      } else if (this.score >= 40) {
         return "💯";
       }
 

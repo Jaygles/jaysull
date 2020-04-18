@@ -4,7 +4,6 @@
       <router-link to="/">Index</router-link>
       <router-link to="/Career">Career</router-link>
       <router-link to="/Contact">Contact</router-link>
-      <router-link :to="randomRoute">Random</router-link>
     </div>
     <div class="themes">
       <label for="theme">Theme: </label>
@@ -19,6 +18,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+
 export default {
   name: "Nav",
   computed: {
@@ -26,9 +26,6 @@ export default {
       themes: (state) => state.ui.themes,
       theme: (state) => state.ui.theme,
     }),
-    randomRoute() {
-      return `/${Math.random()}`;
-    },
   },
   methods: {
     ...mapActions({
