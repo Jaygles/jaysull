@@ -112,13 +112,13 @@ export default {
 
   &.mint {
     background-color: #bcebcb;
-    color: #4c230a;
+    color: #361705;
 
     a {
       color: #0b3c49;
 
       &:visited {
-        color: #731963;
+        color: #092a32;
       }
     }
   }

@@ -10,24 +10,28 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
   },
   {
     path: "/Experience",
     name: "Experience",
-    component: Experience
+    component: Experience,
   },
   {
     path: "/Contact",
     name: "Contact",
-    component: Contact
-  }
+    component: Contact,
+  },
+  {
+    path: "*",
+    redirect: { name: "Home" },
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;
