@@ -1,5 +1,5 @@
 <template>
-  <div id="prize" v-if="prizeEligible">{{ prize }}</div>
+  <div id="prize" v-if="showPrize">{{ prize }}</div>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
     ...mapState({
       score: (state) => state.game.score,
     }),
-    prizeEligible() {
+    showPrize() {
       return this.score >= 5;
     },
     prize() {
@@ -21,10 +21,12 @@ export default {
         return "😂";
       } else if (this.score <= 30) {
         return "🔥";
-      } else if (this.score <= 30) {
-        return "✨";
       } else if (this.score <= 40) {
+        return "✨";
+      } else if (this.score <= 999) {
         return "💯";
+      } else if (this.score <= 1000) {
+        return "💩";
       }
 
       return "";

@@ -42,6 +42,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 
   .links {
     a {

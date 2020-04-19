@@ -45,13 +45,11 @@ export default {
     ...mapActions({
       incrementScore: "game/incrementScore",
     }),
-
     handleClick() {
-      this.randomize();
+      this.randomizePosition();
       this.incrementScore();
     },
-
-    randomize() {
+    randomizePosition() {
       // Places pixel at a random location on the page. Shouldn't send
       // the pixel to be over top of a text node
       const coords = { X: 0, Y: 0 };
@@ -93,7 +91,7 @@ export default {
     },
   },
   mounted() {
-    this.randomize();
+    this.randomizePosition();
   },
 };
 </script>
