@@ -3,23 +3,23 @@
     <Nav />
     <main>
       <router-view />
-      <Pixel />
     </main>
     <Footer />
+    <PixelGame />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 import Nav from "@/components/Nav/Nav";
-import Pixel from "@/components/Pixel/Pixel";
+import PixelGame from "@/components/PixelGame/PixelGame";
 import Footer from "@/components/Footer/Footer";
 
 export default {
   name: "App",
   components: {
     Nav,
-    Pixel,
+    PixelGame,
     Footer,
   },
   computed: {
@@ -50,6 +50,9 @@ export default {
 </script>
 
 <style lang="scss">
+/* Theme applied as a class on #app */
+@import "themes.scss";
+
 #app {
   height: 100%;
   display: flex;
@@ -64,76 +67,6 @@ export default {
     align-items: center;
     justify-content: center;
     overflow-y: auto;
-  }
-
-  &.light {
-    background-color: #f0f0f0;
-    color: #0f0f0f;
-  }
-
-  &.dark {
-    background-color: #0f0f0f;
-    color: #f0f0f0;
-
-    a {
-      color: #2828ff;
-
-      &:visited {
-        color: #9b45e5;
-      }
-    }
-  }
-
-  &.starlight {
-    background-color: #19323c;
-    color: #f3f7f0;
-
-    a {
-      color: #f2545b;
-
-      &:visited {
-        color: #a93f55;
-      }
-    }
-  }
-
-  &.magnolia {
-    background-color: #f5efff;
-    color: #2c363f;
-
-    a {
-      color: #a594f9;
-
-      &:visited {
-        color: #7a59fd;
-      }
-    }
-  }
-
-  &.mint {
-    background-color: #bcebcb;
-    color: #361705;
-
-    a {
-      color: #0b3c49;
-
-      &:visited {
-        color: #092a32;
-      }
-    }
-  }
-
-  &.plum {
-    background-color: #5b3758;
-    color: #f4ecd6;
-
-    a {
-      color: #9790cd;
-
-      &:visited {
-        color: #707bc4;
-      }
-    }
   }
 }
 </style>

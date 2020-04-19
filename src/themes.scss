@@ -1,0 +1,71 @@
+#app {
+  &.light {
+    background-color: #f0f0f0;
+    color: #0f0f0f;
+  }
+
+  &.dark {
+    background-color: #0f0f0f;
+    color: #f0f0f0;
+
+    a {
+      color: #2828ff;
+
+      &:visited {
+        color: #9b45e5;
+      }
+    }
+  }
+
+  &.starlight {
+    background-color: #19323c;
+    color: #f3f7f0;
+
+    a {
+      color: #f2545b;
+
+      &:visited {
+        color: #a93f55;
+      }
+    }
+  }
+
+  &.magnolia {
+    background-color: #f5efff;
+    color: #2c363f;
+
+    a {
+      color: #a594f9;
+
+      &:visited {
+        color: #7a59fd;
+      }
+    }
+  }
+
+  &.mint {
+    background-color: #bcebcb;
+    color: #361705;
+
+    a {
+      color: #0b3c49;
+
+      &:visited {
+        color: #092a32;
+      }
+    }
+  }
+
+  &.plum {
+    background-color: #5b3758;
+    color: #f4ecd6;
+
+    a {
+      color: #9790cd;
+
+      &:visited {
+        color: #707bc4;
+      }
+    }
+  }
+}

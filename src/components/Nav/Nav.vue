@@ -4,6 +4,9 @@
       <router-link to="/">Index</router-link>
       <router-link to="/Experience">Experience</router-link>
       <router-link to="/Contact">Contact</router-link>
+      <router-link to="/Things">Things</router-link>
+      <Score />
+      <Prize />
     </div>
     <div class="themes">
       <label for="theme">Theme: </label>
@@ -18,9 +21,15 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import Score from "@/components/Score/Score";
+import Prize from "@/components/Prize/Prize";
 
 export default {
   name: "Nav",
+  components: {
+    Score,
+    Prize,
+  },
   computed: {
     ...mapState({
       themes: (state) => state.ui.themes,
@@ -45,7 +54,7 @@ nav {
   flex-shrink: 0;
 
   .links {
-    a {
+    > * {
       padding: 0 6px;
     }
   }

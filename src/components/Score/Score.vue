@@ -1,12 +1,11 @@
 <template>
-  <p v-if="renderScore" id="score">
+  <span v-if="renderScore" id="score">
     <span class="number">{{ score }}</span>
-    <span class="clear" @click="clearScore">(X)</span>
-  </p>
+  </span>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "Score",
@@ -19,23 +18,5 @@ export default {
       return this.score > 0;
     },
   },
-  methods: {
-    ...mapActions({
-      clearScore: "game/clearScore",
-    }),
-  },
 };
 </script>
-
-<style lang="scss">
-#score {
-  .clear {
-    cursor: pointer;
-    font-size: 60%;
-  }
-
-  .number {
-    padding: 0 6px;
-  }
-}
-</style>

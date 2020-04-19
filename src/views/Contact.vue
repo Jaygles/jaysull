@@ -1,5 +1,6 @@
 <template>
   <div id="contact">
+    <h1>Contact</h1>
     <label for="email">Email - </label>
     <a id="email" href="mailto:jay@jaysull.dev">jay@jaysull.dev</a>
     <br />
