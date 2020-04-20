@@ -1,5 +1,5 @@
 <template>
-  <div ref="pixel" class="pixel" :style="position" @click="handleClick">
+  <div class="pixel" :style="position" @click="handleClick">
     <div class="color" :style="backgroundColor" />
   </div>
 </template>
@@ -20,20 +20,6 @@ export default {
     backgroundColor() {
       return `background-color: #${this.color};`;
     },
-    parentHeight() {
-      if (this.$refs && this.$refs.pixel) {
-        return this.$refs.pixel.parentElement.clientHeight;
-      }
-
-      return 0;
-    },
-    parentWidth() {
-      if (this.$refs && this.$refs.pixel) {
-        return this.$refs.pixel.parentElement.clientWidth;
-      }
-
-      return 0;
-    },
     position() {
       return `
         top: ${this.Y}px;
@@ -53,11 +39,35 @@ export default {
       // Places pixel at a random location on the page. Shouldn't send
       // the pixel to be over top of a text node
       const coords = { X: 0, Y: 0 };
-      const { parentHeight, parentWidth } = this;
+      const borderSize = 50;
+      const { clientHeight, clientWidth } = document.body;
+      const bounds = {
+        X: {
+          min: borderSize,
+          max: clientWidth - borderSize,
+        },
+        Y: {
+          min: borderSize,
+          max: clientHeight - borderSize,
+        },
+      };
+
+      // If our bounds overlap due to small document size just set to borderSize
+      if (bounds.X.min >= bounds.X.max || bounds.Y.min >= bounds.Y.max) {
+        this.X = borderSize;
+        this.Y = borderSize;
+        return;
+      }
 
       function getCoords() {
-        coords.X = Math.floor(Math.random() * parentWidth);
-        coords.Y = Math.floor(Math.random() * parentHeight);
+        // Ensure X and Y are within 50 pixels of the viewport boundaries
+        while (coords.X < bounds.X.min || coords.X > bounds.X.max) {
+          coords.X = Math.floor(Math.random() * clientWidth);
+        }
+
+        while (coords.Y < bounds.Y.min || coords.Y > bounds.Y.max) {
+          coords.Y = Math.floor(Math.random() * clientHeight);
+        }
       }
 
       function isTextNode() {
@@ -102,8 +112,8 @@ export default {
   width: 1px;
   position: fixed;
   cursor: pointer;
-  padding: 5px;
-  transition: all 0.8s ease-in-out;
+  padding: 6px;
+  transition: all 0.7s ease-in-out;
 
   .color {
     height: 1px;
