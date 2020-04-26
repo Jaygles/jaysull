@@ -13,8 +13,8 @@ export default class Footer extends Vue {}
 
 <style>
 footer {
-  height: 34px;
-  padding: 0 14px;
+  height: 66px;
+  padding: 0 22px;
   flex-shrink: 0;
 }
 </style>

@@ -61,7 +61,7 @@ export default class PixelGame extends Vue {
     // Places pixel at a random location on the page. Shouldn't send
     // the pixel to be over top of a text node
     const coords = { X: 0, Y: 0 };
-    const borderSize = 50;
+    const borderSize = 80;
     const { clientHeight, clientWidth } = document.body;
     const bounds = {
       X: {

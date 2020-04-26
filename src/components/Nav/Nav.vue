@@ -36,23 +36,28 @@ export default class Nav extends Vue {}
 
 <style lang="scss">
 nav {
-  height: 34px;
-  padding: 0 14px;
+  height: 66px;
+  padding: 0 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  flex-wrap: wrap;
 
   .links {
-    > * {
+    padding: 6px 0;
+
+    > a {
       padding: 0 4px;
     }
   }
 
   .controls {
+    padding: 6px 0;
+
     display: flex;
 
-    > * {
+    > div {
       padding: 0 4px;
     }
   }
