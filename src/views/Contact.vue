@@ -24,8 +24,11 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({
   name: "Contact",
-};
+})
+export default class Contact extends Vue {}
 </script>

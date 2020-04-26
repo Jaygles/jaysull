@@ -29,22 +29,24 @@
 </template>
 
 <script>
-export default {
-  name: "Career",
-  computed: {
-    timeSpent() {
-      const msInDay = 86400000;
-      const start = new Date("2019-07-08T08:00:00-0700");
-      const now = new Date();
-      const diff = now.getTime() - start.getTime();
-      const years = Math.floor(diff / (86400000 * 365));
-      const diffMinusYears = diff - years * (86400000 * 365);
-      const months = Math.floor(diffMinusYears / (msInDay * 30));
-      const diffMinusYearsAndMonths = diffMinusYears - months * (msInDay * 30);
-      const days = Math.floor(diffMinusYearsAndMonths / msInDay);
+import { Component, Vue } from "vue-property-decorator";
 
-      return `${years} years, ${months} months, and ${days} days`;
-    },
-  },
-};
+@Component({
+  name: "Career",
+})
+export default class Career extends Vue {
+  get timeSpent() {
+    const msInDay = 86400000;
+    const start = new Date("2019-07-08T08:00:00-0700");
+    const now = new Date();
+    const diff = now.getTime() - start.getTime();
+    const years = Math.floor(diff / (86400000 * 365));
+    const diffMinusYears = diff - years * (86400000 * 365);
+    const months = Math.floor(diffMinusYears / (msInDay * 30));
+    const diffMinusYearsAndMonths = diffMinusYears - months * (msInDay * 30);
+    const days = Math.floor(diffMinusYearsAndMonths / msInDay);
+
+    return `${years} years, ${months} months, and ${days} days`;
+  }
+}
 </script>
