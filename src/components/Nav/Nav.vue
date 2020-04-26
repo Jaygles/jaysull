@@ -54,7 +54,6 @@ nav {
 
   .controls {
     padding: 6px 0;
-
     display: flex;
 
     > div {
