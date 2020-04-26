@@ -1,26 +1,16 @@
-import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
+import { Module, VuexModule, Mutation } from "vuex-module-decorators";
 
 @Module({ name: "GameModule" })
 export default class GameModule extends VuexModule {
   score = 0;
 
   @Mutation
-  increment() {
+  incrementScore() {
     this.score += 1;
   }
 
   @Mutation
-  clear() {
+  clearScore() {
     this.score = 0;
-  }
-
-  @Action({ commit: "increment" })
-  async incrementScore() {
-    return;
-  }
-
-  @Action({ commit: "clear" })
-  async clearScore() {
-    return;
   }
 }
