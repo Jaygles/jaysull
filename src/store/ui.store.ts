@@ -13,16 +13,11 @@ export default class UiModule extends VuexModule {
   ];
 
   @Mutation
-  commitTheme(theme: string) {
+  setTheme(theme: string) {
     this.theme = theme;
   }
 
-  @Action({ commit: "commitTheme" })
-  setTheme(theme: string) {
-    return theme;
-  }
-
-  @Action({ commit: "commitTheme" })
+  @Action({ commit: "setTheme" })
   nextTheme() {
     const { theme, themes } = this;
     const themeIndex = themes.indexOf(theme);
@@ -35,7 +30,7 @@ export default class UiModule extends VuexModule {
     return themes[0];
   }
 
-  @Action({ commit: "commitTheme" })
+  @Action({ commit: "setTheme" })
   prevTheme() {
     const { theme, themes } = this;
     const themeIndex = themes.indexOf(theme);
@@ -43,8 +38,8 @@ export default class UiModule extends VuexModule {
 
     if (previousIndex >= 0) {
       return themes[previousIndex];
-    } else {
-      return themes[themes.length - 1];
     }
+
+    return themes[themes.length - 1];
   }
 }

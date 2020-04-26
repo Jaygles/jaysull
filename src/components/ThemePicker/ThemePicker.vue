@@ -24,7 +24,7 @@
 <template>
   <div class="themes">
     <label for="theme">{{ $t("themeLabel") }}</label>
-    <select id="theme" :value="theme" @change="setTheme($event.target.value)">
+    <select id="theme" v-model="theme">
       <option v-for="theme in themes" :key="theme" :value="theme">
         {{ $t(theme) }}
       </option>
@@ -51,7 +51,7 @@ export default class ThemePicker extends Vue {
     return this.uiModule.theme;
   }
 
-  setTheme(theme: string) {
+  set theme(theme: string) {
     this.uiModule.setTheme(theme);
   }
 }

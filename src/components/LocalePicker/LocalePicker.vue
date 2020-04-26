@@ -12,13 +12,9 @@
 <template>
   <div>
     <label for="locale">{{ $t("localeLabel") }}</label>
-    <select
-      id="locale"
-      :value="currentLocale"
-      @change="setLocale($event.target.value)"
-    >
-      <option v-for="locale in locales" :key="locale" :value="locale">
-        {{ $t(`locales.${locale}`) }}
+    <select id="locale" v-model="locale">
+      <option v-for="loc in locales" :key="loc" :value="loc">
+        {{ $t(`locales.${loc}`) }}
       </option>
     </select>
   </div>
@@ -35,11 +31,11 @@ export default class LocalePicker extends Vue {
     return this.$i18n.availableLocales;
   }
 
-  get currentLocale() {
+  get locale() {
     return this.$root.$i18n.locale;
   }
 
-  setLocale(locale: string) {
+  set locale(locale: string) {
     this.$root.$i18n.locale = locale;
   }
 }
