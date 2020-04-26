@@ -1,8 +1,19 @@
+<i18n>
+{
+  "en": {
+    "codeForThisWebsite": "Code for this website"
+  },
+  "es": {
+    "codeForThisWebsite": "Código para este sitio web"
+  }
+}
+</i18n>
+
 <template>
   <div id="things">
-    <h1>Things</h1>
+    <h1>{{ $t("pages.things") }}</h1>
     <p>
-      Code for this website -&nbsp;
+      {{ $t("codeForThisWebsite") }} -&nbsp;
       <a
         href="https://github.com/Jaygles/jaysull"
         rel="noopener noreferrer"

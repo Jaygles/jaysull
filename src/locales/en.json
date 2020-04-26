@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "index": "Index",
+    "experience": "Experience",
+    "contact": "Contact",
+    "things": "Things"
+  },
+  "locales": {
+    "en": "English",
+    "es": "Español"
+  }
+}

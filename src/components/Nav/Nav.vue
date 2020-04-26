@@ -1,47 +1,37 @@
 <template>
   <nav>
     <div class="links">
-      <router-link to="/">Index</router-link>
-      <router-link to="/Experience">Experience</router-link>
-      <router-link to="/Contact">Contact</router-link>
-      <router-link to="/Things">Things</router-link>
+      <router-link to="/">{{ $t("pages.index") }}</router-link>
+      <router-link to="/Experience">{{ $t("pages.experience") }}</router-link>
+      <router-link to="/Contact">{{ $t("pages.contact") }}</router-link>
+      <router-link to="/Things">{{ $t("pages.things") }}</router-link>
       <Score />
       <Prize />
     </div>
-    <div class="themes">
-      <label for="theme">Theme: </label>
-      <select id="theme" :value="theme" @change="setTheme($event.target.value)">
-        <option v-for="theme in themes" :key="theme">
-          {{ theme }}
-        </option>
-      </select>
+    <div class="controls">
+      <LocalePicker />
+      <ThemePicker />
     </div>
   </nav>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { getModule } from "vuex-module-decorators";
-import UiModule from "@/store/ui.store";
 import Score from "@/components/Score/Score.vue";
 import Prize from "@/components/Prize/Prize.vue";
+import LocalePicker from "@/components/LocalePicker/LocalePicker.vue";
+import ThemePicker from "@/components/ThemePicker/ThemePicker.vue";
 
 @Component({
   name: "Nav",
   components: {
     Score,
     Prize,
+    LocalePicker,
+    ThemePicker,
   },
 })
-export default class Nav extends Vue {
-  uiModule = getModule(UiModule, this.$store);
-  themes = this.uiModule.themes;
-  theme = this.uiModule.theme;
-
-  setTheme(theme: string) {
-    this.uiModule.setTheme(theme);
-  }
-}
+export default class Nav extends Vue {}
 </script>
 
 <style lang="scss">
@@ -54,6 +44,14 @@ nav {
   flex-shrink: 0;
 
   .links {
+    > * {
+      padding: 0 4px;
+    }
+  }
+
+  .controls {
+    display: flex;
+
     > * {
       padding: 0 4px;
     }

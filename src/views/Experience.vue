@@ -1,16 +1,49 @@
+<i18n>
+{
+  "en": {
+    "heading": "Companies I've worked with",
+    "current": "Corriente",
+    "title": "Title",
+    "seniorSoftwareEngineer": "Senior Software Engineer",
+    "softwareEngineer": "Software Engineer",
+    "withTheCompanyFor": "With the company for",
+    "years": "years",
+    "year": "year",
+    "months": "months",
+    "month": "month",
+    "and": "and",
+    "days": "days"
+  },
+  "es": {
+    "heading": "Compañías con las que he trabajado",
+    "current": "Corriente",
+    "title": "Título",
+    "seniorSoftwareEngineer": "Ingeniero de software senior",
+    "softwareEngineer": "Ingeniero de software",
+    "withTheCompanyFor": "Con la empresa durante",
+    "years": "años",
+    "year": "año",
+    "months": "meses",
+    "month": "mes",
+    "and": "y",
+    "days": "dias"
+  }
+}
+</i18n>
+
 <template>
   <div id="career">
-    <h1>Companies I've worked with</h1>
+    <h1>{{ $t("heading") }}</h1>
     <br />
-    <h2>Omnitracs (Current)</h2>
+    <h2>Omnitracs ({{ $t("current") }})</h2>
     <a
       href="https://www.omnitracs.com/"
       rel="noopener noreferrer"
       target="_blank"
       >Website</a
     >
-    <p>Title - Senior Software Engineer</p>
-    <p>With the company for {{ timeSpent }}</p>
+    <p>{{ $t("title") }} - {{ $t("seniorSoftwareEngineer") }}</p>
+    <p>{{ $t("withTheCompanyFor") }} {{ timeSpent }}</p>
     <br />
     <h2>IHS Markit</h2>
     <a
@@ -19,12 +52,18 @@
       target="_blank"
       >Website</a
     >
-    <p>Title - Software Engineer</p>
-    <p>With the company for 1 year, 0 months, and 0 days</p>
+    <p>{{ $t("title") }} - {{ $t("softwareEngineer") }}</p>
+    <p>
+      {{ $t("withTheCompanyFor") }} 1 {{ $t("year") }}, 0 {{ $t("months") }},
+      {{ $t("and") }} 0 {{ $t("days") }}
+    </p>
     <br />
     <h2>Fennec Industries Llc</h2>
-    <p>Title - Grand High Poobah De Doink of Web Development</p>
-    <p>With the company for 1 year, 1 month, and 0 days</p>
+    <p>{{ $t("title") }} - Grand High Poobah De Doink of Web Development</p>
+    <p>
+      {{ $t("withTheCompanyFor") }} 1 {{ $t("year") }}, 1 {{ $t("month") }},
+      {{ $t("and") }} 0 {{ $t("days") }}
+    </p>
   </div>
 </template>
 
@@ -46,7 +85,9 @@ export default class Career extends Vue {
     const diffMinusYearsAndMonths = diffMinusYears - months * (msInDay * 30);
     const days = Math.floor(diffMinusYearsAndMonths / msInDay);
 
-    return `${years} years, ${months} months, and ${days} days`;
+    return `${years} ${this.$t("years")}, ${months} ${this.$t(
+      "months"
+    )}, ${this.$t("and")} ${days} ${this.$t("days")}`;
   }
 }
 </script>

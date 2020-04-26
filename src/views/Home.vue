@@ -1,6 +1,17 @@
+<i18n>
+{
+  "en": {
+    "welcome": "Welcome"
+  },
+  "es": {
+    "welcome": "¡Bienvenido!"
+  }
+}
+</i18n>
+
 <template>
   <div id="home">
-    <p>Welcome</p>
+    <p>{{ $t("welcome") }}</p>
   </div>
 </template>
 
