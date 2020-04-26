@@ -42,8 +42,14 @@ import UiModule from "@/store/ui.store";
 })
 export default class ThemePicker extends Vue {
   uiModule = getModule(UiModule, this.$store);
-  themes = this.uiModule.themes;
-  theme = this.uiModule.theme;
+
+  get themes() {
+    return this.uiModule.themes;
+  }
+
+  get theme() {
+    return this.uiModule.theme;
+  }
 
   setTheme(theme: string) {
     this.uiModule.setTheme(theme);

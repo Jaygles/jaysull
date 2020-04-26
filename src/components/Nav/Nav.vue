@@ -48,7 +48,7 @@ nav {
     padding: 6px 0;
 
     > a {
-      padding: 0 4px;
+      padding: 0 6px;
     }
   }
 
@@ -58,7 +58,7 @@ nav {
     display: flex;
 
     > div {
-      padding: 0 4px;
+      padding: 0 6px;
     }
   }
 }
