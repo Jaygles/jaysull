@@ -47,7 +47,7 @@ nav {
   .links {
     padding: 6px 0;
 
-    > a {
+    > * {
       padding: 0 6px;
     }
   }

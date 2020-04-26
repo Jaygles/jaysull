@@ -1,7 +1,5 @@
 <template>
-  <span v-if="renderScore" id="score">
-    <span class="number">{{ gameModule.score }}</span>
-  </span>
+  <span v-if="renderScore">{{ gameModule.score }}</span>
 </template>
 
 <script lang="ts">

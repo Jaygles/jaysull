@@ -1,5 +1,5 @@
 <template>
-  <span id="prize" v-if="showPrize">{{ prize }}</span>
+  <span v-if="showPrize">{{ prize }}</span>
 </template>
 
 <script lang="ts">
@@ -13,12 +13,16 @@ import GameModule from "@/store/game.store";
 export default class Prize extends Vue {
   gameModule = getModule(GameModule, this.$store);
 
+  get score() {
+    return this.gameModule.score;
+  }
+
   get showPrize(): boolean {
-    return this.gameModule.score >= 5;
+    return this.score >= 5;
   }
 
   get prize(): string {
-    const { score } = this.gameModule;
+    const { score } = this;
 
     if (score <= 10) {
       return "👍";
