@@ -1,22 +1,22 @@
 <template>
   <span v-if="renderScore" id="score">
-    <span class="number">{{ score }}</span>
+    <span class="number">{{ gameModule.score }}</span>
   </span>
 </template>
 
-<script>
-import { mapState } from "vuex";
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import GameModule from "@/store/game.store";
 
-export default {
+@Component({
   name: "Score",
-  computed: {
-    ...mapState({
-      score: (state) => state.game.score,
-    }),
+})
+export default class Score extends Vue {
+  gameModule = getModule(GameModule, this.$store);
 
-    renderScore() {
-      return this.score > 0;
-    },
-  },
-};
+  get renderScore(): boolean {
+    return this.gameModule.score > 0;
+  }
+}
 </script>

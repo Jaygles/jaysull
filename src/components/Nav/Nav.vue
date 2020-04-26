@@ -19,29 +19,29 @@
   </nav>
 </template>
 
-<script>
-import { mapState, mapActions } from "vuex";
-import Score from "@/components/Score/Score";
-import Prize from "@/components/Prize/Prize";
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import UiModule from "@/store/ui.store";
+import Score from "@/components/Score/Score.vue";
+import Prize from "@/components/Prize/Prize.vue";
 
-export default {
+@Component({
   name: "Nav",
   components: {
     Score,
     Prize,
   },
-  computed: {
-    ...mapState({
-      themes: (state) => state.ui.themes,
-      theme: (state) => state.ui.theme,
-    }),
-  },
-  methods: {
-    ...mapActions({
-      setTheme: "ui/setTheme",
-    }),
-  },
-};
+})
+export default class Nav extends Vue {
+  uiModule = getModule(UiModule, this.$store);
+  themes = this.uiModule.themes;
+  theme = this.uiModule.theme;
+
+  setTheme(theme: string) {
+    this.uiModule.setTheme(theme);
+  }
+}
 </script>
 
 <style lang="scss">

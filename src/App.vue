@@ -9,44 +9,45 @@
   </div>
 </template>
 
-<script>
-import { mapState, mapActions } from "vuex";
-import Nav from "@/components/Nav/Nav";
-import PixelGame from "@/components/PixelGame/PixelGame";
-import Footer from "@/components/Footer/Footer";
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import UiModule from "@/store/ui.store";
+import Nav from "@/components/Nav/Nav.vue";
+import PixelGame from "@/components/PixelGame/PixelGame.vue";
+import Footer from "@/components/Footer/Footer.vue";
 
-export default {
+@Component({
   name: "App",
   components: {
     Nav,
     PixelGame,
     Footer,
   },
-  computed: {
-    ...mapState({
-      theme: (state) => state.ui.theme,
-    }),
-  },
+})
+export default class App extends Vue {
+  uiModule = getModule(UiModule, this.$store);
+
+  get theme() {
+    return this.uiModule.theme;
+  }
+
   mounted() {
     document.addEventListener("keypress", this.handleKeypress);
-  },
+  }
+
   destroyed() {
     document.removeEventListener("keypress", this.handleKeypress);
-  },
-  methods: {
-    ...mapActions({
-      nextTheme: "ui/nextTheme",
-      prevTheme: "ui/prevTheme",
-    }),
-    handleKeypress(event) {
-      if (event.key === "a") {
-        this.prevTheme();
-      } else if (event.key === "d") {
-        this.nextTheme();
-      }
-    },
-  },
-};
+  }
+
+  handleKeypress(event: KeyboardEvent): void {
+    if (event.key === "a") {
+      this.uiModule.prevTheme();
+    } else if (event.key === "d") {
+      this.uiModule.nextTheme();
+    }
+  }
+}
 </script>
 
 <style lang="scss">

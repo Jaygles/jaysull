@@ -1,26 +1,26 @@
-import { ActionContext } from "vuex";
+import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 
-export type gameState = {
-  score: number;
-};
+@Module({ name: "GameModule" })
+export default class GameModule extends VuexModule {
+  score = 0;
 
-export default {
-  namespaced: true,
-  state: {
-    score: 0,
-  } as gameState,
-  getters: {},
-  mutations: {
-    update(state: gameState, update: object) {
-      Object.assign(state, update);
-    },
-  },
-  actions: {
-    async incrementScore({ commit, state }: ActionContext<gameState, any>) {
-      commit("update", { score: state.score + 1 });
-    },
-    async clearScore({ commit }: ActionContext<gameState, any>) {
-      commit("update", { score: 0 });
-    },
-  },
-};
+  @Mutation
+  increment() {
+    this.score += 1;
+  }
+
+  @Mutation
+  clear() {
+    this.score = 0;
+  }
+
+  @Action({ commit: "increment" })
+  async incrementScore() {
+    return;
+  }
+
+  @Action({ commit: "clear" })
+  async clearScore() {
+    return;
+  }
+}

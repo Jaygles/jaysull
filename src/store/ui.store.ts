@@ -1,49 +1,50 @@
-import { ActionContext } from "vuex";
+import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 
-type theme = string;
+@Module({ name: "UiModule" })
+export default class UiModule extends VuexModule {
+  theme = "light";
+  themes: Array<string> = [
+    "light",
+    "dark",
+    "starlight",
+    "magnolia",
+    "mint",
+    "plum",
+  ];
 
-export type uiState = {
-  theme: theme;
-  themes: theme[];
-};
+  @Mutation
+  commitTheme(theme: string) {
+    this.theme = theme;
+  }
 
-export default {
-  namespaced: true,
-  state: {
-    theme: "light",
-    themes: ["light", "dark", "starlight", "magnolia", "mint", "plum"],
-  } as uiState,
-  getters: {},
-  mutations: {
-    update(state: uiState, update: object) {
-      Object.assign(state, update);
-    },
-  },
-  actions: {
-    setTheme({ commit }: ActionContext<uiState, any>, theme: theme) {
-      commit("update", { theme });
-    },
-    nextTheme({ commit, state }: ActionContext<uiState, any>) {
-      const { theme, themes } = state;
-      const themeIndex = themes.indexOf(theme);
-      const nextTheme = themes[themeIndex + 1];
+  @Action({ commit: "commitTheme" })
+  setTheme(theme: string) {
+    return theme;
+  }
 
-      if (nextTheme) {
-        commit("update", { theme: nextTheme });
-      } else {
-        commit("update", { theme: themes[0] });
-      }
-    },
-    prevTheme({ commit, state }: ActionContext<uiState, any>) {
-      const { theme, themes } = state;
-      const themeIndex = themes.indexOf(theme);
-      const previousIndex = themeIndex - 1;
+  @Action({ commit: "commitTheme" })
+  nextTheme() {
+    const { theme, themes } = this;
+    const themeIndex = themes.indexOf(theme);
+    const nextTheme = themes[themeIndex + 1];
 
-      if (previousIndex >= 0) {
-        commit("update", { theme: themes[previousIndex] });
-      } else {
-        commit("update", { theme: themes[themes.length - 1] });
-      }
-    },
-  },
-};
+    if (nextTheme) {
+      return nextTheme;
+    }
+
+    return themes[0];
+  }
+
+  @Action({ commit: "commitTheme" })
+  prevTheme() {
+    const { theme, themes } = this;
+    const themeIndex = themes.indexOf(theme);
+    const previousIndex = themeIndex - 1;
+
+    if (previousIndex >= 0) {
+      return themes[previousIndex];
+    } else {
+      return themes[themes.length - 1];
+    }
+  }
+}
