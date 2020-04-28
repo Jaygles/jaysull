@@ -37,6 +37,7 @@ export default class LocalePicker extends Vue {
 
   set locale(locale: string) {
     this.$root.$i18n.locale = locale;
+    document.documentElement.lang = locale;
   }
 }
 </script>
