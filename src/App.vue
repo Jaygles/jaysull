@@ -32,8 +32,28 @@ export default class App extends Vue {
     return this.uiModule.theme;
   }
 
+  set theme(theme) {
+    this.uiModule.setTheme(theme);
+  }
+
   mounted() {
     document.addEventListener("keypress", this.handleKeypress);
+
+    const { storedTheme } = this.uiModule;
+    const { matchMedia } = window;
+
+    if (storedTheme) {
+      this.theme = storedTheme;
+    } else if (matchMedia) {
+      const isDark = matchMedia("(prefers-color-scheme: dark)").matches;
+      const isLight = matchMedia("(prefers-color-scheme: light)").matches;
+
+      if (isDark) {
+        this.theme = "dark";
+      } else if (isLight) {
+        this.theme = "light";
+      }
+    }
   }
 
   destroyed() {

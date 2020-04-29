@@ -51,7 +51,7 @@ export default class ThemePicker extends Vue {
     return this.uiModule.theme;
   }
 
-  set theme(theme: string) {
+  set theme(theme) {
     this.uiModule.setTheme(theme);
   }
 }

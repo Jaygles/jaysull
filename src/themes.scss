@@ -1,24 +1,32 @@
 #app {
   &.light {
-    background-color: #f0f0f0;
-    color: #0f0f0f;
+    background-color: #fff;
+    color: #1d1d1f;
+
+    a {
+      color: #3e7eff;
+
+      &:visited {
+        color: #170591;
+      }
+    }
   }
 
   &.dark {
-    background-color: #0f0f0f;
-    color: #f0f0f0;
+    background-color: #181d20;
+    color: #e0e2e4;
 
     a {
-      color: #2828ff;
+      color: #b4e0f0;
 
       &:visited {
-        color: #9b45e5;
+        color: #85b5c7;
       }
     }
   }
 
   &.starlight {
-    background-color: #19323c;
+    background-color: #101020;
     color: #f3f7f0;
 
     a {
