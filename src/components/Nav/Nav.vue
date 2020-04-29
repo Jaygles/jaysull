@@ -2,9 +2,9 @@
   <nav>
     <div class="links">
       <router-link to="/">{{ $t("pages.index") }}</router-link>
-      <router-link to="/Experience">{{ $t("pages.experience") }}</router-link>
-      <router-link to="/Contact">{{ $t("pages.contact") }}</router-link>
-      <router-link to="/Things">{{ $t("pages.things") }}</router-link>
+      <router-link to="/experience">{{ $t("pages.experience") }}</router-link>
+      <router-link to="/contact">{{ $t("pages.contact") }}</router-link>
+      <router-link to="/things">{{ $t("pages.things") }}</router-link>
       <Score />
       <Prize />
     </div>

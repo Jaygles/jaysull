@@ -14,18 +14,18 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/Experience",
+    path: "/experience",
     name: "Experience",
     component: Experience,
   },
   {
-    path: "/Contact",
+    path: "/contact",
     name: "Contact",
     component: Contact,
   },
 
   {
-    path: "/Things",
+    path: "/things",
     name: "Things",
     component: Things,
   },
