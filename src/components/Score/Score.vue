@@ -1,5 +1,7 @@
 <template>
-  <span v-if="renderScore">{{ gameModule.score }}</span>
+  <span v-if="renderScore" aria-label="Score of hidden game">{{
+    gameModule.score
+  }}</span>
 </template>
 
 <script lang="ts">
@@ -13,7 +15,7 @@ import GameModule from "@/store/game.store";
 export default class Score extends Vue {
   gameModule = getModule(GameModule, this.$store);
 
-  get renderScore(): boolean {
+  get renderScore() {
     return this.gameModule.score > 0;
   }
 }
