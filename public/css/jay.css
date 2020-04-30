@@ -1,10 +1,10 @@
 /* My CSS */
 @font-face {
     font-family: Agave;
-    src: url(Agave-Regular.ttf) format('truetype');
+    src: url(fonts/Agave-Regular.ttf) format('truetype');
     font-display: swap;
 }
 
-* {
+html {
     font-family: Agave;
 }
