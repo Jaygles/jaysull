@@ -2,7 +2,7 @@
 {
   "en": {
     "heading": "Companies I've worked with",
-    "current": "Corriente",
+    "current": "Current",
     "title": "Title",
     "seniorSoftwareEngineer": "Senior Software Engineer",
     "softwareEngineer": "Software Engineer",
