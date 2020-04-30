@@ -23,8 +23,8 @@
 
 <template>
   <div class="themes">
-    <label for="theme">{{ $t("themeLabel") }}</label>
-    <select id="theme" v-model="theme">
+    <label for="themeSelect">{{ $t("themeLabel") }}</label>
+    <select id="themeSelect" v-model="theme">
       <option v-for="theme in themes" :key="theme" :value="theme">
         {{ $t(theme) }}
       </option>

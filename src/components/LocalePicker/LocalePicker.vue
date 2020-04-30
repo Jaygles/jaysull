@@ -11,8 +11,8 @@
 
 <template>
   <div>
-    <label for="locale">{{ $t("localeLabel") }}</label>
-    <select id="locale" v-model="locale">
+    <label for="localeSelect">{{ $t("localeLabel") }}</label>
+    <select id="localeSelect" v-model="locale">
       <option v-for="loc in locales" :key="loc" :value="loc">
         {{ $t(`locales.${loc}`) }}
       </option>

@@ -1,5 +1,5 @@
 <template>
-  <div class="pixel" :style="position" @click="handleClick">
+  <div aria-hidden="true" class="pixel" :style="position" @click="handleClick">
     <div class="color" :style="backgroundColor" />
   </div>
 </template>

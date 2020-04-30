@@ -1,5 +1,18 @@
+<i18n>
+{
+  "en": {
+    "prizeLabel": "Icon related to your score in this website's hidden game"
+  },
+  "es": {
+    "prizeLabel": "Icon related to your score in this website's hidden game"
+  }
+}
+</i18n>
+
 <template>
-  <span v-if="showPrize">{{ prize }}</span>
+  <span v-if="showPrize" role="img" :aria-label="$t('prizeLabel')">{{
+    prize
+  }}</span>
 </template>
 
 <script lang="ts">
