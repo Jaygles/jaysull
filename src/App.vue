@@ -14,15 +14,15 @@ import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
 import UiModule from "@/store/ui.store";
 import Nav from "@/components/Nav/Nav.vue";
-import PixelGame from "@/components/PixelGame/PixelGame.vue";
 import Footer from "@/components/Footer/Footer.vue";
+import PixelGame from "@/components/PixelGame/PixelGame.vue";
 
 @Component({
   name: "App",
   components: {
     Nav,
-    PixelGame,
     Footer,
+    PixelGame,
   },
 })
 export default class App extends Vue {
@@ -85,8 +85,8 @@ export default class App extends Vue {
     height: 100%;
     padding: 10px 40px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: safe center;
+    justify-content: safe center;
     overflow-y: auto;
   }
 }
