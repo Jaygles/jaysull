@@ -84,7 +84,7 @@ export default class PixelGame extends Vue {
     function getCoords() {
       coords.X = Math.floor(Math.random() * clientWidth);
       coords.Y = Math.floor(Math.random() * clientHeight);
-      // Ensure X and Y are within 50 pixels of the viewport boundaries
+      // Ensure X and Y are within 80 pixels of the viewport boundaries
       while (coords.X < bounds.X.min || coords.X > bounds.X.max) {
         coords.X = Math.floor(Math.random() * clientWidth);
       }

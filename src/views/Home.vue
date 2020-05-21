@@ -10,9 +10,9 @@
 </i18n>
 
 <template>
-  <div id="home">
+  <section id="home">
     <p>{{ $t("welcome") }}</p>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

@@ -32,7 +32,7 @@
 </i18n>
 
 <template>
-  <div id="career">
+  <section id="career">
     <h1>{{ $t("heading") }}</h1>
     <br />
     <h2>Omnitracs ({{ $t("current") }})</h2>
@@ -64,7 +64,7 @@
       {{ $t("withTheCompanyFor") }} 1 {{ $t("year") }}, 1 {{ $t("month") }},
       {{ $t("and") }} 0 {{ $t("days") }}
     </p>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
