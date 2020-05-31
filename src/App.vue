@@ -88,6 +88,10 @@ export default class App extends Vue {
     align-items: safe center;
     justify-content: safe center;
     overflow-y: auto;
+
+    section {
+      max-width: clamp(420px, 600px, 800px);
+    }
   }
 }
 </style>

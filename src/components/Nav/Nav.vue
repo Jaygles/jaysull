@@ -2,6 +2,7 @@
   <nav>
     <div class="links">
       <router-link to="/">{{ $t("pages.index") }}</router-link>
+      <router-link to="/about">{{ $t("pages.about") }}</router-link>
       <router-link to="/experience">{{ $t("pages.experience") }}</router-link>
       <router-link to="/contact">{{ $t("pages.contact") }}</router-link>
       <router-link to="/things">{{ $t("pages.things") }}</router-link>

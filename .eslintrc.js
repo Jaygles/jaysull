@@ -3,10 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  plugins: [
-    "prettier",
-    "vue-a11y",
-  ],
+  plugins: ["prettier", "vue-a11y"],
   extends: [
     "plugin:vue/essential",
     "eslint:recommended",
